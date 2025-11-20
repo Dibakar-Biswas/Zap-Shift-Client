@@ -23,6 +23,9 @@ const Navbar = () => {
           } to="about">About Us</NavLink></li>
     <li><NavLink className={({ isActive }) =>
             isActive ? "text-cyan-600 font-extrabold" : ""
+          } to="send-parcel">Send Parcel</NavLink></li>
+    <li><NavLink className={({ isActive }) =>
+            isActive ? "text-cyan-600 font-extrabold" : ""
           } to="coverage">Coverage</NavLink></li>
     </>
   return (
@@ -63,7 +66,7 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? <a onClick={handleLogOut} className="btn">Log Out</a> : 
         <Link to='/login' className="btn">Login</Link>}
-        <Link to='/rider' className="btn-primary text-black mx-4">Be a Rider</Link>
+        <Link to='/rider' className="btn btn-primary text-black mx-4">Be a Rider</Link>
       </div>
     </div>
   );

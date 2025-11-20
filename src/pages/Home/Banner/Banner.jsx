@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import bannerImg1 from "../../../assets/banner/banner1.png";
 import bannerImg2 from "../../../assets/banner/banner2.png";
 import bannerImg3 from "../../../assets/banner/banner3.png";
+import { Link } from "react-router";
 
 const Banner = () => {
   return (
@@ -17,7 +18,7 @@ const Banner = () => {
       >
         <div className="mb-14 ml-22">
             <button className="btn btn-primary mr-4 text-secondary font-bold">Track your parcel</button>
-        <button className="btn text-secondary font-bold">Be a rider</button>
+        <Link to='/rider' className="btn text-secondary font-bold">Be a rider</Link>
         </div>
       </div>
 
