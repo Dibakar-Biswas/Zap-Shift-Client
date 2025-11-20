@@ -4,30 +4,60 @@ import { Link, NavLink } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
-    const {user, logOut} = useAuth();
+  const { user, logOut } = useAuth();
 
-    const handleLogOut = () => {
-        logOut()
-        .then()
-        .catch(error => {
-            console.log(error)
-        })
-    }
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-    const links = <>
-    <li><NavLink className={({ isActive }) =>
+  const links = (
+    <>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
             isActive ? "text-cyan-600 font-extrabold" : ""
-          } to="">Services</NavLink></li>
-    <li><NavLink className={({ isActive }) =>
+          }
+          to=""
+        >
+          Services
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
             isActive ? "text-cyan-600 font-extrabold" : ""
-          } to="about">About Us</NavLink></li>
-    <li><NavLink className={({ isActive }) =>
+          }
+          to="about"
+        >
+          About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
             isActive ? "text-cyan-600 font-extrabold" : ""
-          } to="send-parcel">Send Parcel</NavLink></li>
-    <li><NavLink className={({ isActive }) =>
+          }
+          to="send-parcel"
+        >
+          Send Parcel
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
             isActive ? "text-cyan-600 font-extrabold" : ""
-          } to="coverage">Coverage</NavLink></li>
+          }
+          to="coverage"
+        >
+          Coverage
+        </NavLink>
+      </li>
     </>
+  );
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -56,17 +86,26 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl"><Logo></Logo></a>
+        <a className="btn btn-ghost text-xl">
+          <Logo></Logo>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-xl">
-          {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1 text-xl">{links}</ul>
       </div>
       <div className="navbar-end">
-        {user ? <a onClick={handleLogOut} className="btn">Log Out</a> : 
-        <Link to='/login' className="btn">Login</Link>}
-        <Link to='/rider' className="btn btn-primary text-black mx-4">Be a Rider</Link>
+        {user ? (
+          <a onClick={handleLogOut} className="btn">
+            Log Out
+          </a>
+        ) : (
+          <Link to="/login" className="btn">
+            Login
+          </Link>
+        )}
+        <Link to="/rider" className="btn btn-primary text-black mx-4">
+          Be a Rider
+        </Link>
       </div>
     </div>
   );
