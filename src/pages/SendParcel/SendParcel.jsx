@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, useWatch } from "react-hook-form";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
@@ -15,7 +15,7 @@ const SendParcel = () => {
   const { user } = useAuth();
 
   const axiosSecure = useAxiosSecure();
-
+  const navigate = useNavigate();
 
   const serviceCenters = useLoaderData();
   const regionsDuplicate = serviceCenters.map((c) => c.region);
@@ -61,21 +61,23 @@ const SendParcel = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, confirm it!",
+      confirmButtonText: "Confirm and continue payment!",
     }).then((result) => {
       if (result.isConfirmed) {
-
         // save parcel info to the database
-        axiosSecure.post('/parcels', data)
-        .then(res => {
-            console.log('after saving parcel', res.data)
-        })
-
-        // Swal.fire({
-        //   title: "Order confirmed!",
-        //   text: "Your order has been confirmed.",
-        //   icon: "success",
-        // });
+        axiosSecure.post("/parcels", data).then((res) => {
+          console.log("after saving parcel", res.data);
+          if (res.data.insertedId) {
+            navigate('/dashboard/my-parcels')
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Parcel has created. Please pay",
+              showConfirmButton: false,
+              timer: 2500,
+            });
+          }
+        });
       }
     });
   };
