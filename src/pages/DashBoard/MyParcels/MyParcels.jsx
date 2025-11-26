@@ -53,7 +53,7 @@ const MyParcels = () => {
     const paymentInfo = {
         cost: parcel.cost,
         parcelId: parcel._id,
-        sendedEmail: parcel.sendedEmail,
+        senderEmail: parcel.senderEmail,
         parcelName: parcel.parcelName
     }
     const res = await axiosSecure.post('/payment-checkout-session', paymentInfo);

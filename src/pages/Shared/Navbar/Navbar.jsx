@@ -51,6 +51,16 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "text-cyan-600 font-extrabold" : ""
           }
+          to="rider"
+        >
+          Be a Rider
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "text-cyan-600 font-extrabold" : ""
+          }
           to="coverage"
         >
           Coverage
@@ -100,9 +110,9 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
+        <span className="btn btn-ghost text-xl">
           <Logo></Logo>
-        </a>
+        </span>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-xl">{links}</ul>

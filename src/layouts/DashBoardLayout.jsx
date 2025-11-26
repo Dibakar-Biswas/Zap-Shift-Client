@@ -1,10 +1,13 @@
 import React from "react";
-import { FaHandSpock, FaHome } from "react-icons/fa";
+import { FaHandSpock, FaHome, FaMotorcycle } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa6";
 import { LuPackage } from "react-icons/lu";
-import { MdOutlineSettings } from "react-icons/md";
+import { MdOutlineSettings, MdPayment } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
+import useRole from "../hooks/useRole";
 
 const DashBoardLayout = () => {
+  const {role} = useRole();
   return (
     <div className="drawer lg:drawer-open max-w-7xl mx-auto">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -50,7 +53,8 @@ const DashBoardLayout = () => {
           <ul className="menu w-full grow">
             {/* List item */}
             <li>
-              <Link to='/'
+              <Link
+                to="/"
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 data-tip="Homepage"
               >
@@ -62,18 +66,53 @@ const DashBoardLayout = () => {
 
             {/* our dashboard link */}
             <li>
-              <NavLink to="/dashboard/my-parcels"
+              <NavLink
+                to="/dashboard/my-parcels"
                 className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                data-tip="Parcels"
+                data-tip="My Parcels"
               >
-                {/* Home icon */}
                 <LuPackage />
                 <span className="is-drawer-close:hidden">My Parcels</span>
               </NavLink>
             </li>
-            {/* <li>
-                <NavLink to="/dashboard/my-parcels">My Parcels</NavLink>
-            </li> */}
+            <li>
+              <NavLink
+                to="/dashboard/payment-history"
+                className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Payment History"
+              >
+                <MdPayment />
+                <span className="is-drawer-close:hidden">Payment History</span>
+              </NavLink>
+            </li>
+            {role === "admin" && (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashboard/approve-riders"
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Approve Riders"
+                  >
+                    <FaMotorcycle></FaMotorcycle>
+                    <span className="is-drawer-close:hidden">
+                      Approve Riders
+                    </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/users-management"
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Users Management"
+                  >
+                    <FaUsers></FaUsers>
+                    <span className="is-drawer-close:hidden">
+                      Users Management
+                    </span>
+                  </NavLink>
+                </li>
+              </>
+            )}
 
             {/* List item */}
             <li>
@@ -82,7 +121,7 @@ const DashBoardLayout = () => {
                 data-tip="Settings"
               >
                 {/* Settings icon */}
-               
+
                 <MdOutlineSettings />
                 <span className="is-drawer-close:hidden">Settings</span>
               </button>
