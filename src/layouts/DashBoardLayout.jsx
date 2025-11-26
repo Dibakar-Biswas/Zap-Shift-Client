@@ -5,6 +5,7 @@ import { LuPackage } from "react-icons/lu";
 import { MdOutlineSettings, MdPayment } from "react-icons/md";
 import { Link, NavLink, Outlet } from "react-router";
 import useRole from "../hooks/useRole";
+import { RiEBikeFill } from "react-icons/ri";
 
 const DashBoardLayout = () => {
   const {role} = useRole();
@@ -96,6 +97,18 @@ const DashBoardLayout = () => {
                     <FaMotorcycle></FaMotorcycle>
                     <span className="is-drawer-close:hidden">
                       Approve Riders
+                    </span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/assign-riders"
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Assign Riders"
+                  >
+                    <RiEBikeFill></RiEBikeFill>
+                    <span className="is-drawer-close:hidden">
+                      Assign Riders
                     </span>
                   </NavLink>
                 </li>
