@@ -29,7 +29,7 @@ const PaymentSuccess = () => {
     <div>
       <img className="w-fit mx-auto p-4" src={payBanner} alt="" />
       <p className="text-4xl font-semibold mb-4">
-        You Transaction Id : {paymentInfo.transactionId}
+        Your Transaction Id : {paymentInfo.transactionId}
       </p>
       <p className="text-4xl font-semibold">
         Your Parcel Tracking Id : {paymentInfo.trackingId}
