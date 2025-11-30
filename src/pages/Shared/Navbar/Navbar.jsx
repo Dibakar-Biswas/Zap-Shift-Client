@@ -26,16 +26,7 @@ const Navbar = () => {
           Services
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-cyan-600 font-extrabold" : ""
-          }
-          to="about"
-        >
-          About Us
-        </NavLink>
-      </li>
+
       <li>
         <NavLink
           className={({ isActive }) =>
@@ -43,7 +34,7 @@ const Navbar = () => {
           }
           to="send-parcel"
         >
-          Send Parcel
+          Send a Parcel
         </NavLink>
       </li>
       <li>
@@ -63,23 +54,44 @@ const Navbar = () => {
           }
           to="coverage"
         >
-          Coverage
+          Coverage Areas
         </NavLink>
       </li>
-      {
-        user && <>
-        <li>
+
+      {user && (
+        <>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-cyan-600 font-extrabold" : ""
+              }
+              to="/dashboard/my-parcels"
+            >
+              My Parcels
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-cyan-600 font-extrabold" : ""
+              }
+              to="/dashboard"
+            >
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      )}
+      <li>
         <NavLink
           className={({ isActive }) =>
             isActive ? "text-cyan-600 font-extrabold" : ""
           }
-          to="/dashboard/my-parcels"
+          to="about"
         >
-          My Parcels
+          About Us
         </NavLink>
       </li>
-        </>
-      }
     </>
   );
   return (

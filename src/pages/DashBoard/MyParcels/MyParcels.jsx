@@ -49,18 +49,21 @@ const MyParcels = () => {
     });
   };
 
-  const handlePayment = async(parcel) => {
-    const paymentInfo = {
-        cost: parcel.cost,
-        parcelId: parcel._id,
-        senderEmail: parcel.senderEmail,
-        parcelName: parcel.parcelName,
-        trackingId: parcel.trackingId
-    }
-    const res = await axiosSecure.post('/payment-checkout-session', paymentInfo);
-    console.log(res.data.url);
-    window.location.assign(res.data.url); 
-  }
+  const handlePayment = async (parcel) => {
+    const parcelInfo = {
+      cost: parcel.cost,
+      parcelId: parcel._id,
+      senderEmail: parcel.senderEmail,
+      parcelName: parcel.parcelName,
+      trackingId: parcel.trackingId,
+    };
+    const res = await axiosSecure.post(
+      "/payment-checkout-session",
+      parcelInfo
+    );
+    // console.log(res.data.url);
+    window.location.assign(res.data.url);
+  };
 
   return (
     <div>
@@ -86,17 +89,27 @@ const MyParcels = () => {
                 <td>{parcel.parcelName}</td>
                 <td>{parcel.cost}</td>
                 <td>
-                    {
-                        parcel.paymentStatus === 'paid' ? 
-                        <span className="text-green-400">Paid</span>
-                        :
-                        <button onClick={() => handlePayment(parcel)} className="btn btn-primary text-black btn-sm">Pay</button>
-                        // <Link to={`/dashboard/payment/${parcel._id}`}>
-                        // <button className="btn btn-primary text-black btn-sm">Pay</button>
-                        // </Link>
-                    }
+                  {
+                    parcel.paymentStatus === "paid" ? (
+                      <span className="text-green-800">Paid</span>
+                    ) : (
+                      <button
+                        onClick={() => handlePayment(parcel)}
+                        className="btn btn-primary text-black btn-sm"
+                      >
+                        Pay
+                      </button>
+                    )
+                    // <Link to={`/dashboard/payment/${parcel._id}`}>
+                    // <button className="btn btn-primary text-black btn-sm">Pay</button>
+                    // </Link>
+                  }
                 </td>
-                <td><Link to={`/parcel-track/${parcel.trackingId}`}>{parcel.trackingId}</Link></td>
+                <td>
+                  <Link to={`/parcel-track/${parcel.trackingId}`}>
+                    {parcel.trackingId}
+                  </Link>
+                </td>
                 <td>{parcel.deliveryStatus}</td>
                 <td>
                   <button className="btn btn-square hover:bg-primary">
