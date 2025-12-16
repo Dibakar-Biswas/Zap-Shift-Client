@@ -1,16 +1,63 @@
-# React + Vite
+# 📦 ZapShift Delivery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ZapShift Delivery is a full-stack parcel delivery web application designed to manage parcel booking, tracking, and delivery operations efficiently. The platform supports role-based access for users, riders, and admins, ensuring a smooth and secure logistics workflow.
 
-Currently, two official plugins are available:
+🔗 **Live Website:** https://zap-shift-delivery.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+ZapShift simplifies parcel delivery management by offering:
+- Easy parcel booking for users
+- Real-time delivery tracking
+- Rider assignment and delivery confirmation
+- Admin-level monitoring and control
 
-## Expanding the ESLint configuration
+The application is built using **React** on the frontend and **Express.js + MongoDB** on the backend, following modern full-stack development practices.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Key Features
+
+### 👤 User Features
+- User authentication and profile management
+- Parcel booking with delivery details
+- Real-time parcel status tracking
+- View parcel history and delivery updates
+
+### 🛵 Rider Features
+- View assigned delivery tasks
+- Update parcel delivery status
+- Rider dashboard for task management
+
+### 🛠 Admin Features
+- Manage users and riders
+- Assign parcels to riders
+- Monitor parcel delivery statuses
+- System-wide delivery overview
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React
+- React Router
+- Axios
+- Tailwind CSS / DaisyUI
+- Firebase Authentication
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- MongoDB Aggregation Pipeline
+- JWT Authentication
+
+### Deployment
+- Frontend: Netlify
+- Backend: (Render / Vercel / Railway / Heroku)
+- Database: MongoDB Atlas
+
+---
