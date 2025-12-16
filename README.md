@@ -57,7 +57,7 @@ The application is built using **React** on the frontend and **Express.js + Mong
 
 ### Deployment
 - Frontend: Netlify
-- Backend: (Render / Vercel / Railway / Heroku)
+- Backend: Vercel
 - Database: MongoDB Atlas
 
 ---
